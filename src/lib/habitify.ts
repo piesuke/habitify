@@ -18,6 +18,7 @@ export const updateHabitifyMinLog = async (
 		}),
 	});
 	if (!res.ok) {
+		console.log(await res.text());
 		throw new Error(
 			`Failed to set Habitify status: ${res.status} ${res.statusText}`,
 		);

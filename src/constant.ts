@@ -1,4 +1,6 @@
 /** biome-ignore-all lint/style/noNonNullAssertion: envaironment value */
+import "dotenv/config";
+
 export const WAKATIME_API_KEY = process.env.WAKATIME_API_KEY!;
 export const HABITIFY_API_KEY = process.env.HABITIFY_API_KEY!;
 export const WAKATIME_TARGET_PROJECT = process.env.WAKATIME_TARGET_PROJECT!;

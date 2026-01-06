@@ -13,13 +13,13 @@ async function main() {
 		WAKATIME_TARGET_PROJECT,
 		today,
 	);
-	const totalMinutes = Math.floor(totalSeconds / 60) ?? 15;
+	const totalMinutes = Math.floor(totalSeconds / 60);
 
-	await updateHabitifyMinLog(
-		HABITIFY_TARGET_HABIT_ID,
-		totalMinutes,
-		new Date().toISOString(),
-	);
+	const now = new Date();
+	const jst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+	const timestamp = `${jst.toISOString().slice(0, 19)}+09:00`;
+
+	await updateHabitifyMinLog(HABITIFY_TARGET_HABIT_ID, totalMinutes, timestamp);
 
 	console.log("Sync completed.");
 }
