@@ -17,8 +17,6 @@ export const getTodayTimeForProject = async (
 		`&end=${encodeURIComponent(date)}` +
 		`&project=${encodeURIComponent(project)}`;
 
-	console.log(WAKATIME_API_KEY);
-
 	const res = await fetch(url, {
 		headers: {
 			Authorization: `Basic ${Buffer.from(`${WAKATIME_API_KEY}:`).toString("base64")}`,
