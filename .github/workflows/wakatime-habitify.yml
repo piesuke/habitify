@@ -1,0 +1,31 @@
+name: Sync Wakatime to Habitify
+
+on:
+  schedule:
+    # 毎日23:55 JST (14:55 UTC)
+    - cron: '55 14 * * *'
+  workflow_dispatch: # 手動実行用
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run sync
+        run: pnpm run sync-wakatime-to-habitify
+        env:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          HABITIFY_API_KEY: ${{ secrets.HABITIFY_API_KEY }}
+          WAKATIME_TARGET_PROJECT: ${{ secrets.WAKATIME_TARGET_PROJECT }}
+          HABITIFY_TARGET_HABIT_ID: ${{ secrets.HABITIFY_TARGET_HABIT_ID }}
