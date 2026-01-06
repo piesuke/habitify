@@ -1,0 +1,17 @@
+{
+  "name": "habitify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.18.3",
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3"
+  }
+}
